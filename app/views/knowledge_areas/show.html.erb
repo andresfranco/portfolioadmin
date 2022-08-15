@@ -1,0 +1,12 @@
+<h1><%= @knowledge_area.name %></h1>
+
+<p><%= @knowledge_area.description%></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_knowledge_area_path(@knowledge_area) %></li>
+  <li><%= link_to "Destroy", knowledge_area_path(@knowledge_area), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"} %></li>
+</ul>
+
+<%= link_to "Knowledge Areas", knowledge_areas_url %>

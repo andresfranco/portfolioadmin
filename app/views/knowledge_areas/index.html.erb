@@ -1,0 +1,27 @@
+<h1>Knowledge Areas</h1>
+<%= link_to "New Knowledge Area", new_knowledge_area_path %>
+<br><br>
+<table>
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Description </th>
+            <th> </th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+         <% @knowledge_areas .each do |knowlege_area| %>
+        <tr>
+            <td><a href="/knowledge_areas/<%= knowlege_area.id %>"><%= knowlege_area.name %></a></td>
+            <td><%= knowlege_area.description %> </td>
+            <td><a href="/knowledge_areas/<%= knowlege_area.id %>/edit">Edit</a></td>
+            <td></td>
+        </tr>
+         <% end %>
+    </tbody>
+</table>
+
+
+ 
+
