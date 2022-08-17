@@ -11,17 +11,23 @@
         </tr>
     </thead>
     <tbody>
-         <% @knowledge_areas .each do |knowlege_area| %>
+         <% @knowledge_areas .each do |knowledge_area| %>
         <tr>
-            <td><a href="/knowledge_areas/<%= knowlege_area.id %>"><%= knowlege_area.name %></a></td>
-            <td><%= knowlege_area.description %> </td>
-            <td><a href="/knowledge_areas/<%= knowlege_area.id %>/edit">Edit</a></td>
-            <td></td>
+            <td><a href="/knowledge_areas/<%= knowledge_area.id %>"><%= knowledge_area.name %></a></td>
+            <td><%= knowledge_area.description %> </td>
+            <td><a href="/knowledge_areas/<%= knowledge_area.id %>/edit">Edit</a></td>
+            <td><div data-controller="knowledge-areas">
+                <%= button_to 'Delete', knowledge_area, method: :delete ,data: {action: 'click->knowledge-areas#delete' }, class: 'ml-3 text-sm font-light' %>
+            </div>
+            </td>
+           
         </tr>
          <% end %>
     </tbody>
+    
+    <div data-controller="knowledge-areas">
+    <button data-action="click->knowledge-areas#showAlert">Show alert</button>
+     <button data-action="click->knowledge-areas#delete">Delete stimulus</button>
+    </div>
+    
 </table>
-
-
- 
-
